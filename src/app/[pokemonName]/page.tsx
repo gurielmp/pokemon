@@ -1,6 +1,5 @@
 import { PokemonImage } from "@/components/pokemon-image"
 import { getPokemon } from "@/lib/pokemonAPI"
-import Image from "next/image"
 
 export default async function PokemonPage({
   params,
@@ -10,10 +9,13 @@ export default async function PokemonPage({
   const { pokemonName } = params
   const pokemonObject = await getPokemon(pokemonName)
 
-  console.log(pokemonObject)
+  const secondType =
+    pokemonObject.types.length > 1
+      ? ", " + pokemonObject.types[1].type.name
+      : ""
 
   return (
-    <>
+    <div className="m-5 flex h-fit w-[20rem] flex-col items-center justify-center rounded-2xl bg-neutral-300 bg-opacity-50 px-3 py-2 shadow-xl shadow-neutral-500 backdrop-blur-sm backdrop-filter dark:bg-neutral-500 dark:bg-opacity-50 dark:shadow-neutral-900">
       <h1 className="text-4xl font-bold pt-4">
         {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
       </h1>
@@ -26,16 +28,19 @@ export default async function PokemonPage({
           name={pokemonName}
         />
       </div>
-      <ul>
+      <ul className="mb-4">
         <li>Weight : {pokemonObject.weight}</li>
         <li>Height : {pokemonObject.height}</li>
-        <li>Type : {pokemonObject.types[0].type.name}</li>
+        <li>
+          Type : {pokemonObject.types[0].type.name}
+          {secondType ? secondType : ""}
+        </li>
         <li>Species : {pokemonObject.species.name}</li>
         <li>
           Abilitiy : {pokemonObject.abilities[0].ability.name},{" "}
           {pokemonObject.abilities[1].ability.name}
         </li>
       </ul>
-    </>
+    </div>
   )
 }
