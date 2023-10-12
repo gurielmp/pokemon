@@ -12,3 +12,9 @@ export async function getPokemon(name: string) {
   const data = await response.json()
   return data
 }
+
+export async function getPokemonType() {
+  const response = await fetch(POKEMON_API + "type?limit=18&offset=0")
+  const data = await response.json()
+  return data
+}
