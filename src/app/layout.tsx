@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider attribute="class">
           <main className="flex min-h-screen flex-col items-center p-24">
             <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
               <Link href="/" className="flex items-center">
