@@ -53,7 +53,13 @@ export function PokemonSearch({ pokemonList }: PokemonGridProps) {
   return (
     <>
       <div>
-        <h3 className="text-2xl py-6 text-center">Find Your Pokemon Here</h3>
+        <h3 className="text-3xl font-light dark:text-white">
+          Find Your
+          <small className="ml-2 text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+            Pokemon
+          </small>
+        </h3>
+
         <div className="grid w-full max-w-sm itmes-center gap-1.5">
           <div>
             <select
@@ -82,7 +88,12 @@ export function PokemonSearch({ pokemonList }: PokemonGridProps) {
               <option value="fairy">Fairy</option>
             </select>
           </div>
-          <label htmlFor="search">Pokemon Name</label>
+          <label htmlFor="search">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+              Pokemon
+            </span>{" "}
+            name :
+          </label>
           <input
             type="text"
             value={searchText}
