@@ -23,7 +23,12 @@ export default function RootLayout({
           <main className="flex min-h-screen flex-col items-center p-24">
             <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
               <Link href="/" className="flex items-center">
-                <h2 className="text-2xl">Pokemon Dashboard</h2>
+                <h1 className="mb-4 text-3xl font-extrabold text-gray-800 dark:text-white md:text-5xl lg:text-6xl">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+                    Pokemon
+                  </span>{" "}
+                  Dashboard
+                </h1>
               </Link>
             </div>
             {children}
